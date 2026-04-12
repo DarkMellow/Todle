@@ -35,7 +35,8 @@ function AddTag({ dispatch }) {
 
 export default function Sidebar({ tags, tasks, dispatch }) {
   return (
-    <div className="w-[350px] shrink-0 p-4 bg-(--color-secondary)">
+    <div className="w-[350px] shrink-0 p-4 bg-neutral-100">
+      <p className="text-[32px] text-gray-700 font-medium mb-3 border-b border-neutral-300 pb-6">Todle</p>
       <div>
         <p className="text-xs text-gray-700 font-bold mt-5 mb-3">TASKS</p>
         <div className="flex items-center gap-2 p-2 cursor-pointer hover:bg-[#f0f0f0] rounded-sm">

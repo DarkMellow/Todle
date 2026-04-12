@@ -8,8 +8,7 @@ const initialState = {
     {
       id: 1,
       title: "Buy groceries",
-      description: "",
-      dueDate: null,
+      description: "We need to buy dogfood, catfood, and some stuffs like mangos and spices for the kitchen",
       tags: [1],
       completed: false,
     },
@@ -17,22 +16,20 @@ const initialState = {
       id: 2,
       title: "Finish report",
       description: "",
-      dueDate: null,
-      tags: [2],
+      tags: [1,2],
       completed: false,
     },
     {
       id: 3,
       title: "Call dentist",
       description: "",
-      dueDate: null,
       tags: [2],
       completed: false,
     },
   ],
   tags: [
-    { id: 1, name: "Personal", color: "#ff6b6b" },
-    { id: 2, name: "Work", color: "#4ecdc4" },
+    { id: 1, name: "Personal", color: "#d95a00" },
+    { id: 2, name: "Work", color: "#004b96" },
   ],
   activeTags: [],
   activeTask: null,
@@ -76,6 +73,7 @@ export default function App() {
 
       <MainPanel
         tasks={state.tasks}
+        tags={state.tags}
         setActivePanel={setActivePanel}
         dispatch={dispatch}
       />
