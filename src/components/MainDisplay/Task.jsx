@@ -5,18 +5,18 @@ export default function Task({ title, description, tags, allTags }) {
   const [checked, setChecked] = useState(false);
 
   return (
-    <div className="flex flex-row gap-4 border-t border-neutral-200 py-2">
+    <div className="flex flex-row gap-4 border-t border-(--color-9) py-2">
       <div
         onClick={() => setChecked(prev => !prev)}
-        className={`w-4 mt-[6px] h-4 border rounded-sm cursor-pointer shrink-0 flex items-center justify-center transition-colors duration-150
-          ${checked ? "bg-blue-500 border-blue-500" : "border-neutral-300 bg-white"}`}
+        className={`w-4 mt-[6px] h-4 border rounded-full cursor-pointer shrink-0 flex items-center justify-center transition-colors duration-150
+          ${checked ? "bg-blue-500 border-blue-500" : "border-(--color-7) bg-transparent"}`}
       >
         {checked && <Check size={28} color="white" weight="bold" />}
       </div>
 
       <div className="flex flex-col">
-        <p className={`text-lg font-medium ${checked ? "line-through text-neutral-400" : ""}`}> {title} </p>
-        <p className="text-sm mt-1 text-neutral-500"> {description} </p>
+        <p className={`text-lg font-medium text-(--color-4) ${checked ? "line-through text-(--color-7)" : ""}`}> {title} </p>
+        <p className="text-sm mt-1 text-(--color-7)"> {description} </p>
         <div className="flex gap-4 items-center mt-1">
           {tags.map(tagId => {
             const tag = allTags.find(t => t.id === tagId);

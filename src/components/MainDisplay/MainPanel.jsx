@@ -5,7 +5,7 @@ import Task from "./Task";
 export default function MainPanel({ tasks, tags, setActivePanel }) {
   return (
     <div className="p-4">
-      <p className="text-[32px] tracking-tight font-medium mb-6">Today</p>
+      <p className="text-[32px] tracking-tight font-medium mb-6 text-(--color-1)">Today</p>
 
       <div>
         {tasks.map(t => <Task key={t.id} title={t.title} description={t.description} dueDate={t.dueDate} tags={t.tags} allTags={tags} />)}
@@ -13,7 +13,7 @@ export default function MainPanel({ tasks, tags, setActivePanel }) {
 
       <button
         onClick={() => setActivePanel(true)}
-        className="cursor-pointer text-sm font-bold text-gray-700 border py-2 border-gray-300 text-center p-1 rounded-sm shrink-0 w-[350px]">Add Task
+        className="cursor-pointer text-sm font-bold text-(--color-5) border py-2 border-(--color-8) text-center p-1 rounded-sm shrink-0 w-[350px] hover:bg-(--color-9) transition-colors">Add Task
       </button>
     </div>
   );
