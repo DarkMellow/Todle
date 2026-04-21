@@ -8,7 +8,7 @@ import AddTag from "./AddTag";
 import TagItem from "./TagItem";
 import logo from "../../assets/logo.png";
 
-export default function Sidebar({ tags, tasks, dispatch }) {
+export default function Sidebar({ tags, tasks, dispatch, setSidebarOpen }) {
   const [isDeleteClicked, setIsDeleteClicked] = useState(false);
   return (
     <div className="flex flex-col w-[240px] shrink-0 bg-(--color-11) gap-5 border-r-2 border-r-(--color-9)">
@@ -18,7 +18,7 @@ export default function Sidebar({ tags, tasks, dispatch }) {
           <img src={logo} className="w-7 h-7 mr-2 rounded-md" alt="Todle logo" />
           <p className="text-[21px] text-(--color-1) font-medium">Todle</p>
         </div>
-        <button className="cursor-pointer text-sm font-bold text-(--color-1) w-7 text-center p-1 rounded-sm shrink-0"><SidebarSimpleIcon size={24} /></button>
+        <button onClick={() => setSidebarOpen(false)} className="cursor-pointer text-sm font-bold text-(--color-1) w-7 text-center p-1 rounded-sm shrink-0"><SidebarSimpleIcon size={24} /></button>
       </div>
 
 

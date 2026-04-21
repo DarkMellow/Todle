@@ -1,4 +1,5 @@
 import Sidebar from "./components/SidePanel/Sidebar";
+import SidebarClosed from "./components/SidePanel/SidebarClosed";
 import DetailPannel from "./components/MainDisplay/DetailPanel";
 import MainPanel from "./components/MainDisplay/MainPanel";
 import { useReducer, useState } from "react";
@@ -62,14 +63,19 @@ function reducer(state, action) {
 export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [activePanel, setActivePanel] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
-    <div className={`grid h-screen ${activePanel ? "grid-cols-[350px_1.5fr_1fr]" : "grid-cols-[350px_1fr]"}`}>
-      <Sidebar 
+    <div className={`grid h-screen ${activePanel ? "grid-cols-[240px_1.5fr_1fr]" : "grid-cols-[240px_1fr]"}`}>
+      {sidebarOpen ? <Sidebar 
         tags={state.tags} 
         tasks={state.tasks} 
-        dispatch={dispatch} 
-      />
+        dispatch={dispatch}
+        setSidebarOpen={setSidebarOpen}
+      /> : 
+      <SidebarClosed 
+        setSidebarOpen={setSidebarOpen}
+      />}
 
       <MainPanel
         tasks={state.tasks}

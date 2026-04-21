@@ -3,14 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const COLORS = [
-  "#E0E0E0",
-  "#F5C518",
-  "#FF6B6B",
-  "#00BFBF",
-  "#7ED321",
-  "#FF2D9B",
-  "#2EAF8A",
-  "#A97FE8",
+  "#E0E0E0", "#F5C518", "#00BFBF", "#FF2D9B", "#2EAF8A", "#A97FE8", "#FF6B6B", "#7ED321"
 ];
 
 export default function AddTag({ dispatch }) {
@@ -18,6 +11,7 @@ export default function AddTag({ dispatch }) {
   const [tagName, setTagName] = useState("");
   const [tagColor, setTagColor] = useState(COLORS[0]);
   const [colorPickerOpen, setColorPickerOpen] = useState(false);
+
   const colorPickerRef = useRef(null);
 
   // Close color picker on outside click
