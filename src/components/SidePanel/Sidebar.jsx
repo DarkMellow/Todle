@@ -11,7 +11,7 @@ import logo from "../../assets/logo.png";
 export default function Sidebar({ tags, tasks, dispatch, setSidebarOpen }) {
   const [isDeleteClicked, setIsDeleteClicked] = useState(false);
   return (
-    <div className="flex flex-col w-[240px] shrink-0 bg-(--color-11) gap-5 border-r-2 border-r-(--color-9)">
+    <div className="flex flex-col h-full w-[240px] shrink-0 bg-(--color-11) gap-5 border-r-2 border-r-(--color-9)">
 
       <div className="flex items-center justify-between gap-2 border-b-2 border-b-(--color-9) h-[55px] px-5">
         <div className="flex ">

@@ -66,22 +66,27 @@ export default function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
-    <div className={`grid h-screen ${activePanel ? "grid-cols-[240px_1.5fr_1fr]" : "grid-cols-[240px_1fr]"}`}>
-      {sidebarOpen ? <Sidebar 
-        tags={state.tags} 
-        tasks={state.tasks} 
-        dispatch={dispatch}
-        setSidebarOpen={setSidebarOpen}
-      /> : 
-      <SidebarClosed 
-        setSidebarOpen={setSidebarOpen}
-      />}
+    <div className={"flex h-screen overflow-hidden "}>
+
+      <div className={`h-screen transition-all duration-200 ease-in-out ${sidebarOpen ? "w-[240px]" : "w-[60px]"}`}>
+        {sidebarOpen ? <Sidebar 
+          tags={state.tags} 
+          tasks={state.tasks} 
+          dispatch={dispatch}
+          setSidebarOpen={setSidebarOpen}
+        /> : 
+        <SidebarClosed 
+          setSidebarOpen={setSidebarOpen}
+        />}
+      </div>
 
       <MainPanel
         tasks={state.tasks}
         tags={state.tags}
         setActivePanel={setActivePanel}
         dispatch={dispatch}
+        setSidebarOpen={setSidebarOpen}
+        sidebarOpen={sidebarOpen}
       />
       
       {activePanel && <DetailPannel
