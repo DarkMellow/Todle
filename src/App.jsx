@@ -29,8 +29,8 @@ const initialState = {
     },
   ],
   tags: [
-    { id: 1, name: "Personal", color: "#d95a00" },
-    { id: 2, name: "Work", color: "#004b96" },
+    { id: 1, name: "Personal", color: "#FF6B6B" },
+    { id: 2, name: "Work", color: "#A97FE8" },
   ],
   activeTags: [],
   activeTask: null,
@@ -54,6 +54,13 @@ function reducer(state, action) {
       return {
         ...state,
         tags: state.tags.filter((tag) => tag.id !== action.payload),
+      };
+    case "COMPLETE_TASK":
+      return {
+        ...state,
+        tasks: state.tasks.map((task) =>
+          task.id === action.payload ? { ...task, completed: !task.completed } : task
+        ),
       };
     default:
       return state;
