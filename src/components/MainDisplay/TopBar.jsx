@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { SidebarSimpleIcon } from "@phosphor-icons/react";
+import { AppContext } from "../../context/AppContext";
 
 import logo from "../../assets/logo.png";
 
-export default function TopBar({ sidebarOpen }) {
+export default function TopBar() {
+  const { sidebarOpen } = useContext(AppContext);
   return (
     <div className="flex items-center h-[55px] p-2.5 px-5 border-b-2 border-(--color-9) w-full">
       {!sidebarOpen && <div className="flex justify-center items-center">

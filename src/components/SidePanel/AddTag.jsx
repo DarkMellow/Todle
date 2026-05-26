@@ -1,4 +1,5 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
@@ -6,7 +7,8 @@ const COLORS = [
   "#E0E0E0", "#F5C518", "#00BFBF", "#FF2D9B", "#2EAF8A", "#A97FE8", "#FF6B6B", "#7ED321"
 ];
 
-export default function AddTag({ dispatch }) {
+export default function AddTag() {
+  const { dispatch } = useContext(AppContext);
   const [isOpen, setIsOpen] = useState(false);
   const [tagName, setTagName] = useState("");
   const [tagColor, setTagColor] = useState(COLORS[0]);

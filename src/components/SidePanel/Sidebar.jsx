@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 
 import {
   SidebarSimpleIcon, CheckSquareIcon, CirclesThreeIcon, CalendarBlankIcon, ArrowUpRightIcon, SealWarningIcon, GithubLogoIcon, LinkedinLogoIcon
@@ -8,7 +9,8 @@ import AddTag from "./AddTag";
 import TagItem from "./TagItem";
 import logo from "../../assets/logo.png";
 
-export default function Sidebar({ tags, tasks, dispatch, setSidebarOpen }) {
+export default function Sidebar() {
+  const { tags, tasks, dispatch, setSidebarOpen } = useContext(AppContext);
   const [isDeleteClicked, setIsDeleteClicked] = useState(false);
   return (
     <div className="flex flex-col h-full w-[240px] shrink-0 bg-(--color-11) gap-5 border-r-2 border-r-(--color-9)">
@@ -79,9 +81,9 @@ export default function Sidebar({ tags, tasks, dispatch, setSidebarOpen }) {
         </div>
 
         {tags.map(tag => <div className="hover:bg-(--color-9) rounded-sm">
-          <TagItem key={tag.id} tag={tag} tasks={tasks} dispatch={dispatch} isDeleteClicked={isDeleteClicked} />
+          <TagItem key={tag.id} tag={tag} isDeleteClicked={isDeleteClicked} />
         </div>)}
-        <AddTag dispatch={dispatch} />
+        <AddTag />
       </div>
 
     </div>

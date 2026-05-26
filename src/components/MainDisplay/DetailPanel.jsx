@@ -1,6 +1,8 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 
-export default function DetailPanel({ activePanel, setActivePanel, tags }) {
+export default function DetailPanel() {
+  const { tags, activePanel, setActivePanel } = useContext(AppContext);
   const [selectedTagIds, setSelectedTagIds] = useState([]);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);

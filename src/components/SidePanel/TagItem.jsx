@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 import { TrashIcon } from '@phosphor-icons/react';
 
-export default function TagItem({ tag, tasks, dispatch, isDeleteClicked }) {
+export default function TagItem({ tag, isDeleteClicked }) {
+  const { tasks, dispatch } = useContext(AppContext);
   return (
     <div className="flex items-center gap-2 px-5 py-[7px] group">
       <div className="w-[17px] h-[17px] rounded-full shrink-0" style={{ backgroundColor: tag.color }}></div>

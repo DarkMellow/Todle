@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 
 import {
   EyeClosedIcon, EyeIcon,
@@ -8,12 +9,13 @@ import {
 import Task from "./Task";
 import TopBar from "./TopBar";
 
-export default function MainPanel({ tasks, tags, setActivePanel, setSidebarOpen, sidebarOpen, dispatch }) {
+export default function MainPanel() {
+  const { tasks, tags, dispatch, setActivePanel, setSidebarOpen, sidebarOpen } = useContext(AppContext);
   const [hideDone, setHideDone] = useState(false);
 
   return (
     <div className="flex flex-col gap-5 w-full items-center">
-      <TopBar setSidebarOpen={setSidebarOpen} sidebarOpen={sidebarOpen} />
+      <TopBar />
 
       <div className="flex flex-col py-[30px] w-[680px]">
         <div className="flex items-center justify-between w-full mb-3 px-2">
@@ -54,7 +56,7 @@ export default function MainPanel({ tasks, tags, setActivePanel, setSidebarOpen,
             return visible.map((t, i) => (
               <>
                 {i > 0 && <hr key={`divider-${t.id}`} className="border-none h-px bg-(--color-9) mx-2" />}
-                <Task key={t.id} id={t.id} completed={t.completed} title={t.title} description={t.description} dueDate={t.dueDate} tags={t.tags} allTags={tags} dispatch={dispatch} />
+                <Task key={t.id} id={t.id} completed={t.completed} title={t.title} description={t.description} dueDate={t.dueDate} tags={t.tags} />
               </>
             ));
           })()}

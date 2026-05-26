@@ -1,8 +1,11 @@
+import { useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 import {
   SidebarSimpleIcon, CheckSquareIcon, CirclesThreeIcon, SealWarningIcon, GithubLogoIcon, LinkedinLogoIcon
 } from '@phosphor-icons/react';
 
-export default function SidebarClosed({ setSidebarOpen }) {
+export default function SidebarClosed() {
+  const { setSidebarOpen } = useContext(AppContext);
   return (
     <div className="flex flex-col h-full w-[60px] shrink-0 bg-(--color-10) gap-5 border-r-2 border-r-(--color-9)">
 

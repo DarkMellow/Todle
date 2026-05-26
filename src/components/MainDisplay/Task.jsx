@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { AppContext } from "../../context/AppContext";
 import { Check, Tag } from "@phosphor-icons/react";
 
-export default function Task({ title, description, tags, allTags, dispatch, id, completed }) {
+export default function Task({ title, description, tags, id, completed }) {
+  const { tags: allTags, dispatch } = useContext(AppContext);
   const [checked, setChecked] = useState(completed);
 
   return (
