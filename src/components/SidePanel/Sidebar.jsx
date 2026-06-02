@@ -10,8 +10,9 @@ import TagItem from "./TagItem";
 import logo from "../../assets/logo.png";
 
 export default function Sidebar() {
-  const { tags, tasks, dispatch, setSidebarOpen } = useContext(AppContext);
+  const { tags, setSidebarOpen } = useContext(AppContext);
   const [isDeleteClicked, setIsDeleteClicked] = useState(false);
+  
   return (
     <div className="flex flex-col h-full w-[240px] shrink-0 bg-(--color-11) gap-5 border-r-2 border-r-(--color-9)">
 

@@ -1,6 +1,6 @@
 import Sidebar from "./components/SidePanel/Sidebar";
 import SidebarClosed from "./components/SidePanel/SidebarClosed";
-import DetailPannel from "./components/MainDisplay/DetailPanel";
+
 import MainPanel from "./components/MainDisplay/MainPanel";
 import { useReducer, useState } from "react";
 import { AppContext } from "./context/AppContext";
@@ -33,8 +33,8 @@ const initialState = {
     { id: 1, name: "Personal", color: "#FF6B6B" },
     { id: 2, name: "Work", color: "#A97FE8" },
   ],
-  activeTags: [],
-  activeTask: null,
+  activeTags: [],     // toggle to see the tasks related only to this specific tag
+  activeTask: null,   // which task is currently active
 };
 
 function reducer(state, action) {
@@ -68,15 +68,13 @@ function reducer(state, action) {
   }
 }
 
-
-
 export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [activePanel, setActivePanel] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
   return (
-    <AppContext.Provider value={{ tasks: state.tasks, tags: state.tags, activeTask: state.activeTask, activePanel: state.activePanel, dispatch, setActivePanel, setSidebarOpen, sidebarOpen }}>
+    <AppContext.Provider value={{ tagId: state.tags.id, tasks: state.tasks, tags: state.tags, activeTask: state.activeTask, activePanel, dispatch, setActivePanel, setSidebarOpen, sidebarOpen }}>
     <div className={"flex h-screen overflow-hidden "}>
 
       <div className={`h-screen transition-all duration-200 ease-in-out ${sidebarOpen ? "w-[240px]" : "w-[60px]"}`}>
@@ -85,7 +83,7 @@ export default function App() {
 
       <MainPanel />
       
-      {activePanel && <DetailPannel />}
+
     </div>
     </AppContext.Provider>
   );

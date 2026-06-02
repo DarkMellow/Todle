@@ -18,18 +18,20 @@ export default function Task({ title, description, tags, id, completed }) {
 
       <div className="flex flex-col">
         <p className={`text-[16px] text-(--color-5) ${checked ? "line-through text-(--color-7)" : ""}`}> {title} </p>
-        <p className="text-sm mt-1 text-(--color-7)"> {description} </p>
-        <div className="flex gap-4 items-center mt-1">
-          {tags.length > 0 && tags.map(tagId => {
-            const tag = allTags.find(t => t.id === tagId);
-            return tag ? (
-              <div key={tagId} className="flex gap-1 items-center">
-                <Tag size={14} weight="bold" color={checked ? "var(--color-7)" : tag.color} />
-                <p className="text-sm font-medium tracking-wide" style={{ color: checked ? "var(--color-7)" : tag.color }}>{tag.name}</p>
-              </div>
-            ) : null;
-          })}
-        </div>
+        {description && <p className="text-sm mt-1 text-(--color-7)"> {description} </p>}
+        {tags.length > 0 && (
+          <div className="flex gap-4 items-center mt-1">
+            {tags.map(tagId => {
+              const tag = allTags.find(t => t.id === tagId);
+              return tag ? (
+                <div key={tagId} className="flex gap-1 items-center">
+                  <Tag size={14} weight="bold" color={checked ? "var(--color-7)" : tag.color} />
+                  <p className="text-sm font-medium tracking-wide" style={{ color: checked ? "var(--color-7)" : tag.color }}>{tag.name}</p>
+                </div>
+              ) : null;
+            })}
+          </div>
+        )}
       </div>
     </div>
   );
