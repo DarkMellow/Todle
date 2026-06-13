@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { SidebarSimpleIcon } from "@phosphor-icons/react";
 import { AppContext } from "../../context/AppContext";
 
 import logo from "../../assets/logo.png";

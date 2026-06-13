@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 * {
-  font-family: 'Poppins';
+  font-family: 'Inter';
 }
 
 body {
@@ -126,7 +126,7 @@ body {
   font-size: 12px;
   font-weight: 500;
   color: white;
-  border-color: #73e218 !important;
+  border-color: #084b86 !important;
 }
 
 /* Today: colored circle background */

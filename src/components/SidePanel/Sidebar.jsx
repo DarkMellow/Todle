@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import { AppContext } from "../../context/AppContext";
+import { Link } from "react-router-dom";
 
 import {
   SidebarSimpleIcon, CheckSquareIcon, CirclesThreeIcon, CalendarBlankIcon, ArrowUpRightIcon, SealWarningIcon, GithubLogoIcon, LinkedinLogoIcon
@@ -29,15 +30,15 @@ export default function Sidebar() {
         <p className="text-xs text-(--color-7) px-3 font-bold">TASKS</p>
 
         <div className="flex flex-col gap-1">
-          <div className="flex items-center gap-2 px-3 py-[7px] cursor-pointer hover:bg-(--color-9) rounded-sm">
+          <Link to="/" className="flex items-center gap-2 px-3 py-[7px] cursor-pointer hover:bg-(--color-9) rounded-sm text-decoration-none">
             <CheckSquareIcon size={22} color="#D9D9D9" />
             <p className="text-[14px] text-(--color-5)">Today</p>
-          </div>
+          </Link>
 
-          <div className="flex items-center gap-2 px-3 py-[7px] cursor-pointer hover:bg-(--color-9) rounded-sm">
+          <Link to="/upcoming" className="flex items-center gap-2 px-3 py-[7px] cursor-pointer hover:bg-(--color-9) rounded-sm text-decoration-none">
             <CirclesThreeIcon size={22} color="#D9D9D9" />
             <p className="text-[14px] text-(--color-5)">Upcoming</p>
-          </div>
+          </Link>
         </div>
       </div>
 

@@ -1,9 +1,12 @@
+import Today from "./pages/Today";
+import Upcoming from "./pages/Upcoming";
 import Sidebar from "./components/SidePanel/Sidebar";
 import SidebarClosed from "./components/SidePanel/SidebarClosed";
+import TopBar from "./components/Tasks/TopBar";
 
-import MainPanel from "./components/MainDisplay/MainPanel";
 import { useReducer, useState } from "react";
 import { AppContext } from "./context/AppContext";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const initialState = {
   tasks: [
@@ -18,7 +21,7 @@ const initialState = {
       id: 2,
       title: "Finish report",
       description: "",
-      tags: [1,2],
+      tags: [1, 2],
       completed: false,
     },
     {
@@ -75,16 +78,24 @@ export default function App() {
 
   return (
     <AppContext.Provider value={{ tagId: state.tags.id, tasks: state.tasks, tags: state.tags, activeTask: state.activeTask, activePanel, dispatch, setActivePanel, setSidebarOpen, sidebarOpen }}>
-    <div className={"flex h-screen overflow-hidden "}>
+      <BrowserRouter>
+        <div className="flex h-screen overflow-hidden">
+          <div className={`h-screen transition-all duration-200 ease-in-out ${sidebarOpen ? "w-[240px]" : "w-[60px]"}`}>
+            {sidebarOpen ? <Sidebar /> : <SidebarClosed />}
+          </div>
+          
+          <div className="flex-1 h-screen flex flex-col bg-[#262626] overflow-hidden">
+            <TopBar />
+            <div className="flex-1 overflow-y-auto flex justify-center w-full">
 
-      <div className={`h-screen transition-all duration-200 ease-in-out ${sidebarOpen ? "w-[240px]" : "w-[60px]"}`}>
-        {sidebarOpen ? <Sidebar /> : <SidebarClosed />}
-      </div>
-
-      <MainPanel />
-      
-
-    </div>
+              <Routes>
+                <Route path="/" element={<Today />} />
+                <Route path="/upcoming" element={<Upcoming />} />
+              </Routes>
+            </div>
+          </div>
+        </div>
+      </BrowserRouter>
     </AppContext.Provider>
   );
 }

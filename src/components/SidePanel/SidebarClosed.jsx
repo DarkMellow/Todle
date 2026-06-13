@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AppContext } from "../../context/AppContext";
+import { Link } from "react-router-dom";
 import {
   SidebarSimpleIcon, CheckSquareIcon, CirclesThreeIcon, SealWarningIcon, GithubLogoIcon, LinkedinLogoIcon
 } from '@phosphor-icons/react';
@@ -18,12 +19,12 @@ export default function SidebarClosed() {
 
       {/* Tasks icons */}
       <div className="flex flex-col gap-1 mx-2.5 items-center">
-        <div className="flex items-center justify-center w-full py-[7px] cursor-pointer hover:bg-(--color-9) rounded-sm">
+        <Link to="/" className="flex items-center justify-center w-full py-[7px] cursor-pointer hover:bg-(--color-9) rounded-sm">
           <CheckSquareIcon size={22} color="#D9D9D9" />
-        </div>
-        <div className="flex items-center justify-center w-full py-[7px] cursor-pointer hover:bg-(--color-9) rounded-sm">
+        </Link>
+        <Link to="/upcoming" className="flex items-center justify-center w-full py-[7px] cursor-pointer hover:bg-(--color-9) rounded-sm">
           <CirclesThreeIcon size={22} color="#D9D9D9" />
-        </div>
+        </Link>
       </div>
 
       <hr className="border-t border-(--color-9) mx-3" />
