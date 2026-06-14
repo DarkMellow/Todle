@@ -13,7 +13,7 @@ import logo from "../../assets/logo.png";
 export default function Sidebar() {
   const { tags, setSidebarOpen } = useContext(AppContext);
   const [isDeleteClicked, setIsDeleteClicked] = useState(false);
-  
+
   return (
     <div className="flex flex-col h-full w-[240px] shrink-0 bg-(--color-11) gap-5 border-r-2 border-r-(--color-9)">
 
@@ -48,29 +48,35 @@ export default function Sidebar() {
         <p className="text-xs text-(--color-7) px-3 font-bold">CONTACTS</p>
 
         <div className="flex flex-col gap-1">
-          <div className="flex items-center justify-between px-3 py-[7px] cursor-pointer hover:bg-(--color-9) rounded-sm">
-            <div className="flex items-center gap-2">
-              <SealWarningIcon size={22} color="#D9D9D9" />
-              <p className="text-[14px] text-(--color-5)">Send Feedback</p>
+          <Link to="https://github.com/DarkMellow/Todle" target="_blank" className="text-decoration-none">
+            <div className="flex items-center justify-between px-3 py-[7px] cursor-pointer hover:bg-(--color-9) rounded-sm">
+              <div className="flex items-center gap-2">
+                <SealWarningIcon size={22} color="#D9D9D9" />
+                <p className="text-[14px] text-(--color-5)">Send Feedback</p>
+              </div>
+              <ArrowUpRightIcon size={17} color="#A6A6A6" />
             </div>
-            <ArrowUpRightIcon size={17} color="#A6A6A6" />
-          </div>
+          </Link>
 
-          <div className="flex items-center justify-between px-3 py-[7px] cursor-pointer hover:bg-(--color-9) rounded-sm">
-            <div className="flex items-center gap-2">
-              <GithubLogoIcon size={22} color="#D9D9D9" />
-              <p className="text-[14px] text-(--color-5)">GitHub</p>
+          <Link to={"https://github.com/DarkMellow/Todle"} target="_blank" className="text-decoration-none">
+            <div className="flex items-center justify-between px-3 py-[7px] cursor-pointer hover:bg-(--color-9) rounded-sm">
+              <div className="flex items-center gap-2">
+                <GithubLogoIcon size={22} color="#D9D9D9" />
+                <p className="text-[14px] text-(--color-5)">GitHub</p>
+              </div>
+              <ArrowUpRightIcon size={17} color="#A6A6A6" />
             </div>
-            <ArrowUpRightIcon size={17} color="#A6A6A6" />
-          </div>
+          </Link>
 
-          <div className="flex items-center justify-between px-3 py-[7px] cursor-pointer hover:bg-(--color-9) rounded-sm">
-            <div className="flex items-center gap-2">
-              <LinkedinLogoIcon size={22} color="#D9D9D9" />
-              <p className="text-[14px] text-(--color-5)">LinkedIn</p>
+          <Link to={"https://www.linkedin.com/in/ankan-karmakar-7909a6275/"} target="_blank" className="text-decoration-none">
+            <div className="flex items-center justify-between px-3 py-[7px] cursor-pointer hover:bg-(--color-9) rounded-sm">
+              <div className="flex items-center gap-2">
+                <LinkedinLogoIcon size={22} color="#D9D9D9" />
+                <p className="text-[14px] text-(--color-5)">LinkedIn</p>
+              </div>
+              <ArrowUpRightIcon size={17} color="#A6A6A6" />
             </div>
-            <ArrowUpRightIcon size={17} color="#A6A6A6" />
-          </div>
+          </Link>
         </div>
       </div>
 
