@@ -3,13 +3,18 @@ import { AppContext } from "../../context/AppContext";
 import { Check } from "@phosphor-icons/react";
 
 export default function Task({ title, description, tags, id, completed }) {
-  const { tags: allTags, dispatch } = useContext(AppContext);
+  const { tags: allTags, dispatch, setIsEditTaskOpen } = useContext(AppContext);
   const [checked, setChecked] = useState(completed);
 
+  function handleActiveTaskSelection() {
+    dispatch({ type: "SET_ACTIVE_TASK", payload: id });
+    setIsEditTaskOpen(true);
+  }
+
   return (
-    <div className="flex flex-row gap-4 py-2 my-1 cursor-pointer hover:bg-(--color-9) transition-colors duration-150 rounded-lg px-2">
+    <div onClick={() => handleActiveTaskSelection()} className="flex relative flex-row gap-4 py-2 my-1 cursor-pointer hover:bg-(--color-9) transition-colors duration-150 rounded-lg px-2">
       <div
-        onClick={() => { setChecked(prev => !prev); dispatch({ type: "COMPLETE_TASK", payload: id }); }}
+        onClick={(e) => { e.stopPropagation(); setChecked(prev => !prev); dispatch({ type: "COMPLETE_TASK", payload: id }); }}
         className={`w-5 mt-[2px] h-5 border rounded-full cursor-pointer shrink-0 flex items-center justify-center transition-colors duration-150
           ${checked ? "bg-blue-500 border-blue-500" : "border-(--color-7) bg-transparent"}`}
       >

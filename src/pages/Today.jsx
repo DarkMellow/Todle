@@ -8,9 +8,10 @@ import {
 
 import Task from "../components/Tasks/Task";
 import TaskAdder from "../components/Tasks/TaskAdder";
+import TaskEditModal from "../components/Tasks/TaskEditModal";
 
 export default function Today() {
-  const { tasks, setActivePanel } = useContext(AppContext);
+  const { tasks, setActivePanel, isEditTaskOpen, activeTask } = useContext(AppContext);
   const [hideCompletedTasks, setHideCompletedTasks] = useState(false);
 
   return (
@@ -56,6 +57,8 @@ export default function Today() {
           ));
         })()}
       </div>
+
+      {isEditTaskOpen && activeTask !== null && <TaskEditModal key={activeTask} />}
     </div>
   );
 }

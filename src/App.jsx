@@ -66,6 +66,15 @@ function reducer(state, action) {
           task.id === action.payload ? { ...task, completed: !task.completed } : task
         ),
       };
+    case "SET_ACTIVE_TASK":
+      return { ...state, activeTask: action.payload };
+    case "UPDATE_TASK":
+      return {
+        ...state,
+        tasks: state.tasks.map((task) =>
+          task.id === action.payload.id ? { ...task, ...action.payload.updates } : task
+        ),
+      };
     default:
       return state;
   }
@@ -75,9 +84,10 @@ export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [activePanel, setActivePanel] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [isEditTaskOpen, setIsEditTaskOpen] = useState(false);
 
   return (
-    <AppContext.Provider value={{ tagId: state.tags.id, tasks: state.tasks, tags: state.tags, activeTask: state.activeTask, activePanel, dispatch, setActivePanel, setSidebarOpen, sidebarOpen }}>
+    <AppContext.Provider value={{ tagId: state.tags.id, tasks: state.tasks, tags: state.tags, activeTask: state.activeTask, activePanel, dispatch, setActivePanel, setSidebarOpen, sidebarOpen, isEditTaskOpen, setIsEditTaskOpen }}>
       <BrowserRouter>
         <div className="flex h-screen overflow-hidden">
           <div className={`h-screen transition-all duration-200 ease-in-out ${sidebarOpen ? "w-[240px]" : "w-[60px]"}`}>

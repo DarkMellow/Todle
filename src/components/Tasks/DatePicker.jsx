@@ -21,15 +21,17 @@ const quickOptions = [
   },
 ];
 
-export default function DatePicker({ selected, onSelect }) {
+export default function DatePicker({ selected, onSelect, position = "bottom" }) {
   const handleQuickSelect = (getDate) => {
     onSelect(getDate());
   };
 
+  const placementClass = position === "top" ? "bottom-full mb-1.5" : "top-full mt-1.5";
+
   return (
     <div
       onClick={(e) => e.stopPropagation()}
-      className="absolute left-0 top-full mt-1.5 z-40 bg-(--color-10) border border-(--color-8)/40 rounded-xl shadow-2xl overflow-hidden w-fit"
+      className={`absolute left-0 ${placementClass} z-40 bg-(--color-10) border border-(--color-8)/40 rounded-xl shadow-2xl overflow-hidden w-fit`}
     >
       {/* Quick Options */}
       <div className="flex flex-col px-2 py-2">
