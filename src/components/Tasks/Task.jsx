@@ -23,7 +23,7 @@ export default function Task({ title, description, tags, id, completed }) {
 
       <div className="flex flex-col">
         <p className={`text-[16px] text-(--color-5) ${checked ? "line-through text-(--color-7)" : ""}`}> {title} </p>
-        {description && <p className="text-sm mt-1 text-(--color-7)"> {description} </p>}
+        {description && <p className="text-sm mt-1 text-(--color-7) line-clamp-2"> {description} </p>}
         {tags.length > 0 && (
           <div className="flex gap-2 items-center mt-2 flex-wrap">
             {tags.map(tagId => {

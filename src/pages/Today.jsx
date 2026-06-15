@@ -15,8 +15,8 @@ export default function Today() {
   const [hideCompletedTasks, setHideCompletedTasks] = useState(false);
 
   return (
-    <div className="flex flex-col py-[30px] w-[680px]">
-      <div className="flex items-center justify-between w-full mb-3 px-2">
+    <div className="flex flex-col py-[30px] w-full max-w-[680px] px-4 h-full overflow-hidden">
+      <div className="flex items-center justify-between w-full mb-3 px-2 shrink-0">
         <p className="text-[22px] font-medium text-(--color-1)">Today</p>
 
         <div className="flex items-center gap-2">
@@ -42,8 +42,11 @@ export default function Today() {
         </div>
       </div>
 
-      <TaskAdder />
-      <div>
+      <div className="shrink-0">
+        <TaskAdder />
+      </div>
+
+      <div className="flex-1 overflow-y-auto pr-1">
         {(() => {
           const visible = tasks.filter(t => !hideCompletedTasks || !t.completed);
           if (visible.length === 0) {

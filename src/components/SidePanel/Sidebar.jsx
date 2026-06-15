@@ -48,7 +48,7 @@ export default function Sidebar() {
         <p className="text-xs text-(--color-7) px-3 font-bold">CONTACTS</p>
 
         <div className="flex flex-col gap-1">
-          <Link to="https://github.com/DarkMellow/Todle" target="_blank" className="text-decoration-none">
+          <Link to="https://forms.gle/me4dqjLSe3i6SWrq8" target="_blank" className="text-decoration-none">
             <div className="flex items-center justify-between px-3 py-[7px] cursor-pointer hover:bg-(--color-9) rounded-sm">
               <div className="flex items-center gap-2">
                 <SealWarningIcon size={22} color="#D9D9D9" />
